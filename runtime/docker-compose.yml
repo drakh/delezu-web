@@ -1,0 +1,19 @@
+volumes:
+  redis2_data: {}
+  mongo_data: {}
+services:
+  redis:
+    image: redis:4.0.10
+    mem_limit: 256m
+    ports:
+      - 6378:6379
+    volumes:
+      - redis2_data:/data
+  mongo:
+    image: 'bitnami/mongodb:latest'
+    mem_limit: 512m
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/bitnami
+version: '2'
